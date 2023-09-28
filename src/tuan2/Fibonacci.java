@@ -15,11 +15,11 @@ public class Fibonacci {
 //		for(int i=0;i<n;i++) {
 //			System.out.print(getFibonacci(i)+" ");
 //		}
-		if(n<0) {
+		if(n<=0) {
 			return;
 		}
 		else {
-			printFibonacci(n-1);
+			printFibonacci(--n);
 			System.out.print(getFibonacci(n)+" ");
 			
 		}
