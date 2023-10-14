@@ -62,11 +62,13 @@ public class Order {
 		public OrderItem[] getItems() {
 			return items;
 		}
+		
+		
 		public static void main(String[] args) {
 			
-			Product p1=new Product("A15","Milk",10,"Good");
-			Product p2=new Product("A13","CoCa",5.6,"Very good");
-			Product p3=new Product("A14","Chocolate",22.4,"Very good");
+			Product p1=new Product("A","Milk",10,"Good");
+			Product p2=new Product("B","CoCa",5.6,"Very good");
+			Product p3=new Product("C","Chocolate",22.4,"Very good");
 			Product p4=new Product("A11","Pepsi",20.4,"Good");
 			
 			OrderItem or1=new OrderItem(p1, 20);
@@ -81,13 +83,13 @@ public class Order {
 			
 		
 			Sort s= new Sort();
-			s.sort(o);
-			
+//			s.sort(o);
+			s.bubbleSort(o);
 			System.out.println(Arrays.toString(list));
 			
 			System.out.println(o.contains(p4));
 			
-			System.out.println(Arrays.toString(o.filter("Very good")));
+//			System.out.println(Arrays.toString(o.filter("Very good")));
 		}
 		
 		
