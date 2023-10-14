@@ -1,6 +1,6 @@
 package tuan4;
 
-public class Task1 {
+public class Task1_Task2 {
 	// sort by descending order
 	public static void selectionSort(int[] array) {
 		int max = 0;
