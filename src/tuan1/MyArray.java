@@ -1,5 +1,5 @@
 package tuan1;
-import java.awt.image.AreaAveragingScaleFilter;
+
 import java.util.Arrays;
 
 public class MyArray {

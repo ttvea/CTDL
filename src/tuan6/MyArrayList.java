@@ -1,10 +1,11 @@
 package tuan6;
 
+
 import java.util.Arrays;
 import java.util.Comparator;
-import java.util.Iterator;
 
-public class MyArrayList<E> {
+
+public class MyArrayList<E> implements Comparator<E> {
 	public static final int DEFAULT_CAPACITY = 10;
 	private E[] elements;
 	private int size;
@@ -78,8 +79,8 @@ public class MyArrayList<E> {
 				elements[size / 2] = e;
 			} else {
 				size++;
-				for (int j =i; j <size; j++) {
-					elements[j+1]=elements[j];
+				for (int j =size; j>i; j--) {
+					elements[j]=elements[j-1];
 				}
 				elements[i]=e;
 			}
@@ -131,6 +132,11 @@ public class MyArrayList<E> {
 	// It returns true if the list contains the specified
 //		element
 	public boolean contains(E o) {
+		for(int i=0;i<size;i++) {
+			if(elements[i].equals(o)) {
+				return true;
+			}
+		}
 		return false;
 	}
 
@@ -138,19 +144,35 @@ public class MyArrayList<E> {
 //		 first occurrence of the specified element, or -1 if the 
 //		List does not contain this element.
 	public int indexOf(E o) {
+		for(int i=0;i<size;i++) {
+			if(elements[i].equals(o)) {
+				return i;
+			}
+		}
 		return -1;
 	}
 
 	// It is used to remove the first occurrence of the
 //		specified element.
 	public boolean remove(E e) {
-
-		return false;
+		for(int i=0;i<size;i++) {
+			if(elements[i].equals(e)) {
+				remove(i);
+				break;
+			}
+		}
+		return true;
 	}
 
 	// It is used to sort the elements of the list on the
 //		basis of specified comparator.
 	public void sort(Comparator<E> c) {
+	Arrays.sort(this.elements, 0, size, c);
+	}
+	@Override
+	public int compare(E o1, E o2) {
+		
+		return 0;
 	}
 
 	public String toString() {
@@ -160,21 +182,26 @@ public class MyArrayList<E> {
 				result += elements[i] + " ";
 			}
 		}
-
 		return result;
 	}
 
 	public static void main(String[] args) {
-		MyArrayList<Integer> test = new MyArrayList<>();
-		test.add(1);
-		test.add(0);
-		test.add(0);
-		test.add(0);
-//		test.add(1, 2);
-//		test.set(0,1);
+		MyArrayList<String> test = new MyArrayList<>();
+		test.add("A");
+		test.add("B");
+		test.add("C");
+		test.add("A");
+//		test.set(0,"F");
+//		test.add(1, "E");
 //		test.clear();
-		System.out.println("Remove "+test.remove(0));
-		System.out.println("LastIndexOf "+test.lastIndexOf(0));
+//		System.out.println("Remove "+test.remove(0));
+//		System.out.println("LastIndexOf "+test.lastIndexOf("A"));
+//		System.out.println("Contains "+test.contains("A"));
+//		System.out.println("IndexOf "+test.indexOf("A"));
+//		System.out.println(test.remove("A"));
+		test.sort(test);
 		System.out.println(test.toString());
 	}
+
+	
 }
