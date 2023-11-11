@@ -40,10 +40,10 @@ public class SinglyLinkedList<E> {
 	// Adds a new element to the front of the list.
 	public void addFirst(E e) {
 		size++;
-//		Node<E>newest=new Node<E>(e);
-//		newest.setNext(head);
-//		head=newest;
-		head = new Node<E>(e, head);
+		Node<E>newest=new Node<E>(e);
+		newest.setNext(head);
+		head=newest;
+//		head = new Node<E>(e, head);
 		if(head.getNext()==null) {
 			head.setNext(tail);//gắn head đầu tiên thành đứa đứng cuối
 			tail=head;

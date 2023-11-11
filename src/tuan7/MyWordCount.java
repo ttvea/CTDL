@@ -18,7 +18,7 @@ import javax.swing.plaf.basic.BasicTreeUI.TreeCancelEditingAction;
 
 public class MyWordCount {
 	// public static final String fileName = "data/hamlet.txt";
-	public static final String fileName = "C:\\Users\\Windows\\Downloads\\data\\fit.txt";
+	public static final String fileName = "data/fit.txt";
 
 	private List<String> words = new ArrayList<>();
 
